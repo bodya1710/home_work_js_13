@@ -5,7 +5,6 @@ btnRemove.addEventListener('click', function () {
     localStorage.clear();
     window.location.reload();
 })
-
 let wrapContainerGoods = document.createElement('div');
 document.body.appendChild(wrapContainerGoods);
 for(let i=0; i<localStorage.length; i++) {
@@ -25,17 +24,26 @@ for(let i=0; i<localStorage.length; i++) {
         let btnRemoveElement = document.createElement('button');
         btnRemoveElement.innerText = `Remove Element`;
         btnRemoveElement.addEventListener('click', function () {
-            localStorage.removeItem(element);
-            window.location.reload();
-        })
 
+            const removeProduct = productId => {
+                let products = arrG;
+                const index = products.findIndex(product => product.id === productId);
+                console.log(index);
+                if (index > -1) {
+                    products.splice(index, 1);
+                    localStorage.setItem('keyGoods',JSON.stringify(products));
+                    window.location.reload();
+                }
+            };
+            removeProduct(element.id);
+        })
         wrapContainerGoods.appendChild(goodsConatiner);
         goodsConatiner.appendChild(goodsName);
         goodsConatiner.appendChild(goodsQuantity);
         goodsConatiner.appendChild(goodsPrice);
         goodsConatiner.appendChild(img);
         goodsConatiner.appendChild(btnRemoveElement);
-        console.log(arrG);
     }
 }
-console.log(window);
+//          let newArrG = arrG.slice(element, 1);
+//           localStorage.setItem('keyGoods' ,JSON.stringify(newArrG));
