@@ -45,5 +45,4 @@ for(let i=0; i<localStorage.length; i++) {
         goodsConatiner.appendChild(btnRemoveElement);
     }
 }
-//          let newArrG = arrG.slice(element, 1);
-//           localStorage.setItem('keyGoods' ,JSON.stringify(newArrG));
+

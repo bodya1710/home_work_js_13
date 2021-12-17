@@ -42,7 +42,6 @@ referenseListPage.href = 'list.html';
 referenseListPage.innerText = 'List page';
 document.body.appendChild(referenseListPage);
 let item = 'keyGoods';
-
 let saveGoods = (name, quantity, price, image) => {
         let id = (new Date()).getTime();
         let newArr = JSON.parse(localStorage.getItem(item)) || [];
